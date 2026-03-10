@@ -1,6 +1,7 @@
 import { ChatRequest, ChatResponse, ConversationHistory, ToolInfo } from '../types';
 
-const API_BASE = '/api';
+// Use environment variable for production, fallback to /api for local dev (proxied by Vite)
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 export const api = {
     async sendMessage(message: string): Promise<ChatResponse> {
