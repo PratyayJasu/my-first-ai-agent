@@ -1,5 +1,5 @@
 from typing import List, Dict, Any, Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from datetime import datetime
 
 
@@ -19,12 +19,7 @@ class ChatResponse(BaseModel):
     """Response model for chat messages."""
     response: str
     conversation_length: int
-    timestamp: datetime = None
-    
-    def __init__(self, **data):
-        if data.get("timestamp") is None:
-            data["timestamp"] = datetime.now()
-        super().__init__(**data)
+    timestamp: datetime = Field(default_factory=datetime.now)
     
     class Config:
         json_schema_extra = {
