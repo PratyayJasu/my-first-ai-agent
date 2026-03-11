@@ -10,4 +10,4 @@ requests
 duckduckgo-search
 
 # Data validation
-pydantic==2.8.0
+pydantic>=2.5.0
