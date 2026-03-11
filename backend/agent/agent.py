@@ -19,6 +19,11 @@ def reset_conversation():
     conversation_history = []
 
 
+def get_conversation_history():
+    """Get the current conversation history."""
+    return conversation_history.copy()
+
+
 def run_agent(user_input: str, max_iterations: int = 10) -> str:
     """
     Run the agent with the given user input.
